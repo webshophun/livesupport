@@ -38,7 +38,7 @@
             return 1;
         }
 
-
+        // Sima query funkció, INSERT, UPDATE, DELETE
         public function query($query,$sor="nincs megadva",$fajl="nincs megadva fájl")
         {
             $this->ellenor_sql($query);
@@ -46,6 +46,11 @@
             return TRUE;
         }       
 
+        // Tábla létezésének vizsgálata
+        /*
+        * Létezik a tábla = TRUE
+        * Nem létezik a tábla = FALSE
+        */
         public function is_table($table)
         {
             $this->ellenor_sql($table);
@@ -57,6 +62,7 @@
             }
         }
 
+        // select funkció több dimenziós asszociatív tömbbel tér vissza
         public function select($query,$sor="nincs megadva",$fajl="nincs megadva fájl")
         {
             $this->ellenor_sql($query);
@@ -80,6 +86,7 @@
             return $result;
         }
 
+        // select funkció egy sima asszociatív tömbbel tér vissza
         public function selectRow($query,$sor="nincs megadva",$fajl="nincs megadva fájl")
         {
             $this->ellenor_sql($query);
@@ -246,5 +253,4 @@
         }
 
     }
-    $GLOBALS['DB'] =  new DB();
 ?>
