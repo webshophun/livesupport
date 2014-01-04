@@ -174,9 +174,9 @@
             return TRUE;
         }
 
+        // Die függvény módosított változata
         public function die2($sor="", $file="", $sql=""){
             $errorVisible=TRUE;;
-
 
             //Hiba üzenet: dátum, sql, lap, ip
             $error = date("Y:m:d H:i:s",time())."-kor hiba történt.\nA hibás lekérdezés:\n". $sql ."\nA hibás file:". $file ."\n";
@@ -225,6 +225,7 @@
             }
         }// $this->die2 end
 
+        // sql ellenőr, védelem a tábla törlés és ürítés ellen
         public function ellenor_sql($sql){
             $tiltott_drop  = substr_count(strtolower($sql),"drop table");
             $tiltott_truncat  = substr_count(strtolower($sql),"truncate table");
@@ -235,7 +236,7 @@
 
         }
 
-        //Karakterek levédése
+        // sql injectuin stb. elleni védelem
         public function db_in($string) {
             $this->__construct();
 
