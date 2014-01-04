@@ -12,7 +12,7 @@
 
         public function __construct()
         {     
-            global $dbLocalhost, $dbUsername, $dbPassword, $dbName; 
+            require_once('../../config.php');            
             $this->mysql = @mysql_connect($dbLocalhost, $dbUsername, $dbPassword, true);
             $this->selected_database = @mysql_select_db($dbName, $this->mysql);
             mysql_query('SET NAMES utf8',  $this->mysql);
